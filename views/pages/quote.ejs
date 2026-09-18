@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <%- include('../partials/header') %>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span>Request a Quote</span>
+      </div>
+      <div class="page-hero-content">
+        <span class="eyebrow" style="color:#38bdf8;">Interactive Project Estimator</span>
+        <h1>Cleanroom Specification & Quotation Builder</h1>
+        <p>
+          Configure your target cleanroom dimensions, ISO/GMP classification, and architectural envelope parameters below to receive an instant preliminary calculation and technical proposal.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote Estimator Tool -->
+  <section class="section">
+    <div class="container">
+      <div class="quote-builder-wrapper">
+        <div class="quote-builder-grid">
+          <!-- Form Parameters -->
+          <div class="quote-form-panel">
+            <h2 style="font-size:1.625rem; color:var(--primary-navy); margin-bottom:8px;">Configure Cleanroom Parameters</h2>
+            <p style="font-size:0.9375rem; color:var(--slate-600); margin-bottom:32px;">
+              Provide your preliminary room criteria. Values will dynamically calculate air handling metrics in the summary panel.
+            </p>
+
+            <form id="cleanroomQuoteForm">
+              <!-- Section 1: Dimensions -->
+              <h3 style="font-size:1.125rem; color:var(--slate-900); margin-bottom:16px; border-bottom:1px solid var(--slate-200); padding-bottom:8px;">
+                1. Room Dimensions (Internal Clearance)
+              </h3>
+              <div class="form-row-3">
+                <div class="form-group">
+                  <label class="form-label" for="roomLength">Length (Meters) *</label>
+                  <input type="number" id="roomLength" name="roomLength" class="form-control" value="12" min="2" max="100" step="0.5" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="roomWidth">Width (Meters) *</label>
+                  <input type="number" id="roomWidth" name="roomWidth" class="form-control" value="8" min="2" max="100" step="0.5" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="roomHeight">Clear Height (Meters) *</label>
+                  <input type="number" id="roomHeight" name="roomHeight" class="form-control" value="3.0" min="2.2" max="12" step="0.1" required>
+                </div>
+              </div>
+
+              <!-- Section 2: Standards & Envelope -->
+              <h3 style="font-size:1.125rem; color:var(--slate-900); margin:24px 0 16px; border-bottom:1px solid var(--slate-200); padding-bottom:8px;">
+                2. Classification & Architectural Preferences
+              </h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="targetStandard">Target Cleanliness Standard *</label>
+                  <select id="targetStandard" name="targetStandard" class="form-control" required>
+                    <option value="ISO 4 (GMP Grade A Equivalent)">ISO Class 4 (GMP Grade A Equivalent)</option>
+                    <option value="ISO 5 (GMP Grade B/A localized)">ISO Class 5 (GMP Grade B / A Localized)</option>
+                    <option value="ISO 6 (GMP Grade B/C)">ISO Class 6 (GMP Grade B/C)</option>
+                    <option value="ISO 7 (GMP Grade C / Class 10,000)" selected>ISO Class 7 (GMP Grade C / Class 10,000)</option>
+                    <option value="ISO 8 (GMP Grade D / Class 100,000)">ISO Class 8 (GMP Grade D / Class 100,000)</option>
+                    <option value="ISO 9 (Standard Controlled)">ISO Class 9 (Standard Controlled)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="wallType">Wall Partition Material</label>
+                  <select id="wallType" name="wallType" class="form-control">
+                    <option value="Monobloc Flush Panels" selected>Monobloc Flush Panels (Pharma / Biotech)</option>
+                    <option value="HPL Modular Demountable Cassette">HPL Modular Demountable Cassette (Medtech / General)</option>
+                    <option value="AISI 316L Stainless Steel">AISI 316L Stainless Steel (High Chemical / Aseptic)</option>
+                    <option value="Glass Full-Vision System">Glass Full-Vision Architectural Cleanroom</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="airflowType">Airflow Design Pattern</label>
+                  <select id="airflowType" name="airflowType" class="form-control">
+                    <option value="Turbulent Mixing (ISO 7-8)" selected>Turbulent Mixing / Non-unidirectional</option>
+                    <option value="Vertical Laminar Downflow (ISO 4-5)">Vertical Laminar Downflow (Grade A/B)</option>
+                    <option value="Horizontal Crossflow">Horizontal Crossflow Canopy</option>
+                    <option value="Recirculating Plena with FFUs">Recirculating Ceiling Plena with EC FFUs</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="airlockCount">Material & Personnel Airlocks (PAL / MAL)</label>
+                  <input type="number" id="airlockCount" name="airlockCount" class="form-control" value="2" min="0" max="10" required>
+                </div>
+              </div>
+
+              <!-- Section 3: Contact & Timeline -->
+              <h3 style="font-size:1.125rem; color:var(--slate-900); margin:24px 0 16px; border-bottom:1px solid var(--slate-200); padding-bottom:8px;">
+                3. Project & Contact Details
+              </h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="fullName">Your Full Name *</label>
+                  <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Dr. Andrea Wagner" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="company">Company / Institution *</label>
+                  <input type="text" id="company" name="company" class="form-control" placeholder="e.g. Novartis Pharma AG" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="quoteEmail">Work Email *</label>
+                  <input type="email" id="quoteEmail" name="email" class="form-control" placeholder="a.wagner@novartis.com" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="quotePhone">Direct Phone *</label>
+                  <input type="tel" id="quotePhone" name="phone" class="form-control" placeholder="+49 170 1234567" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="quoteIndustry">Industry Sector *</label>
+                  <select id="quoteIndustry" name="industry" class="form-control" required>
+                    <option value="Pharmaceutical / Biotech">Pharmaceutical & Biotech</option>
+                    <option value="Semiconductor / Electronics">Semiconductor & Electronics</option>
+                    <option value="Medical Devices">Medical Device Manufacturing</option>
+                    <option value="Aerospace / Defense">Aerospace & Defense</option>
+                    <option value="Healthcare / Research">Healthcare / Research Laboratories</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="quoteTimeline">Target Completion Date</label>
+                  <select id="quoteTimeline" name="timeline" class="form-control">
+                    <option value="Immediate (Under 3 Months)">Immediate (Under 3 Months)</option>
+                    <option value="3 - 6 Months" selected>3 - 6 Months</option>
+                    <option value="6 - 12 Months">6 - 12 Months</option>
+                    <option value="Future Planning (12+ Months)">Future Planning (12+ Months)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="additionalNotes">Specific Equipment / Process Notes</label>
+                <textarea id="additionalNotes" name="additionalNotes" class="form-control" placeholder="Describe any heavy machinery heat loads, chemical fumes requiring exhaust, humidity tolerances (e.g. 45% ± 3%), or walk-on ceiling requirements..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-accent btn-lg" style="width:100%;">
+                <i data-feather="file-text"></i>
+                Submit Cleanroom RFQ Specification
+              </button>
+            </form>
+          </div>
+
+          <!-- Dynamic Calculation Summary Panel -->
+          <div class="quote-summary-panel">
+            <h3 style="font-size:1.375rem; color:var(--primary-navy); margin-bottom:12px;">Real-Time Calculation</h3>
+            <p style="font-size:0.875rem; color:var(--slate-600); margin-bottom:24px;">
+              Live technical estimates based on DIN EN ISO 14644-1:2015 aerodynamic design rules.
+            </p>
+
+            <div class="calc-summary-card">
+              <h4>Cleanroom Volume & Geometry</h4>
+              <div class="calc-metric-row">
+                <span class="calc-metric-label">Floor Surface Area:</span>
+                <span class="calc-metric-val" id="calcArea">96.0 m²</span>
+              </div>
+              <div class="calc-metric-row">
+                <span class="calc-metric-label">Internal Room Volume:</span>
+                <span class="calc-metric-val" id="calcVolume">288.0 m³</span>
+              </div>
+            </div>
+
+            <div class="calc-summary-card">
+              <h4>Aerodynamic HVAC Estimation</h4>
+              <div class="calc-metric-row">
+                <span class="calc-metric-label">Recommended Air Changes:</span>
+                <span class="calc-metric-val" id="calcACH">35 ACH</span>
+              </div>
+              <div class="calc-metric-row">
+                <span class="calc-metric-label">Required Supply Airflow:</span>
+                <span class="calc-metric-val" id="calcAirflow">10,080 m³/h</span>
+              </div>
+              <div class="calc-metric-row">
+                <span class="calc-metric-label">Estimated Fan Filter Units:</span>
+                <span class="calc-metric-val" id="calcFFU">~11 units</span>
+              </div>
+            </div>
+
+            <div style="background:var(--white); border:1px solid var(--slate-200); border-radius:var(--radius-lg); padding:20px; margin-top:auto;">
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                <i data-feather="shield-check" style="color:#22c55e; width:18px; height:18px;"></i>
+                <span style="font-size:0.875rem; font-weight:700; color:var(--slate-900);">Compliance Assurance</span>
+              </div>
+              <p style="font-size:0.8125rem; color:var(--slate-600); line-height:1.5;">
+                Every quotation generated by REINWERK includes complete 3D BIM clash modeling, AHU energy budget, and a guaranteed first-pass ISO/GMP qualification warranty.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <%- include('../partials/footer') %>
+
+  <!-- Estimator Script -->
+  <script src="/js/quote-calc.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <%- include('../partials/header') %>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span>Services</span>
+      </div>
+      <div class="page-hero-content">
+        <span class="eyebrow" style="color:#38bdf8;">Engineering Portfolio</span>
+        <h1>Cleanroom Products & Engineering Services</h1>
+        <p>
+          Turnkey contamination control solutions from modular envelopes and precision air handling to material airlocks and certified GAMP 5 qualification.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Services Grid -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Our Core Solutions</span>
+        <h2 class="section-title">Engineered to Your Exact Classification</h2>
+        <p class="section-subtitle">
+          Select a service pillar below to view detailed technical specifications, key components, and applicable regulatory standards.
+        </p>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:48px;">
+        <% services.forEach((service, index) => { %>
+          <div class="card" style="padding:32px; display:grid; grid-template-columns: 0.9fr 1.1fr; gap:40px; align-items:center;">
+            <div class="card-img-wrapper" style="height:320px; border-radius:var(--radius-lg); <%= index % 2 === 1 ? 'order: 2;' : '' %>">
+              <img src="<%= service.heroImage %>" alt="<%= service.title %>">
+              <span class="card-badge"><%= service.isoRange %></span>
+            </div>
+            <div>
+              <span class="eyebrow" style="font-size:12px;"><%= service.gmpGrades %></span>
+              <h3 style="font-size:1.75rem; margin-bottom:12px; color:var(--primary-navy);"><%= service.title %></h3>
+              <p style="font-size:1rem; color:var(--slate-600); margin-bottom:20px; line-height:1.7;">
+                <%= service.shortDescription %>
+              </p>
+
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:24px;">
+                <% service.keyFeatures.slice(0, 4).forEach(f => { %>
+                  <div style="display:flex; align-items:flex-start; gap:8px;">
+                    <i data-feather="check" style="width:16px; height:16px; color:var(--accent-red); flex-shrink:0; margin-top:3px;"></i>
+                    <span style="font-size:0.875rem; font-weight:600; color:var(--slate-800);"><%= f.title %></span>
+                  </div>
+                <% }) %>
+              </div>
+
+              <div style="display:flex; gap:16px; flex-wrap:wrap;">
+                <a href="/services/<%= service.slug %>" class="btn btn-primary btn-sm">
+                  Full Technical Specs <i data-feather="arrow-right" style="width:14px; height:14px;"></i>
+                </a>
+                <a href="/quote" class="btn btn-outline btn-sm">
+                  Request Quote for This Service
+                </a>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reusable CTA Consultation Banner -->
+  <%- include('../partials/cta-banner') %>
+
+  <!-- Footer -->
+  <%- include('../partials/footer') %>
+</body>
+</html>

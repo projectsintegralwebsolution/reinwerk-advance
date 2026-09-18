@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <%- include('../partials/header') %>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span>Process & Technology</span>
+      </div>
+      <div class="page-hero-content">
+        <span class="eyebrow" style="color:#38bdf8;">Engineering Lifecycle</span>
+        <h1>From Concept to Certified Handover</h1>
+        <p>
+          A proven 5-stage turnkey methodology powered by 3D Building Information Modeling (BIM Level 2), aerodynamic CFD simulations, and rigorous GAMP 5 qualification.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5-Stage Process Details -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Structured Delivery</span>
+        <h2 class="section-title">The REINWERK 5-Stage Execution Framework</h2>
+        <p class="section-subtitle">
+          Ensuring zero ambiguity, strict adherence to budget, and guaranteed compliance at first-pass validation.
+        </p>
+      </div>
+
+      <div class="process-timeline">
+        <% steps.forEach(st => { %>
+          <div class="process-card" style="padding:40px;">
+            <div class="process-step-num"><%= st.stepNumber %></div>
+            <div class="process-details">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:8px;">
+                <h3 style="font-size:1.625rem; color:var(--slate-900);"><%= st.title %></h3>
+                <span class="deliverable-tag" style="background:var(--clean-blue-light); color:var(--primary-navy); font-weight:700;">
+                  Typical Duration: <%= st.duration %>
+                </span>
+              </div>
+              <span class="process-subtitle" style="font-size:1rem;"><%= st.subtitle %></span>
+              <p style="color:var(--slate-700); font-size:1rem; margin-bottom:24px; line-height:1.7;"><%= st.description %></p>
+
+              <!-- Activities & Deliverables -->
+              <div class="grid-2" style="margin-bottom:20px;">
+                <div style="background:var(--slate-50); padding:20px; border-radius:var(--radius-md); border:1px solid var(--slate-200);">
+                  <h4 style="font-size:0.9375rem; text-transform:uppercase; color:var(--slate-700); margin-bottom:12px; font-weight:700;">
+                    Key Engineering Activities:
+                  </h4>
+                  <ul style="font-size:0.875rem; color:var(--slate-600); display:flex; flex-direction:column; gap:6px;">
+                    <% st.keyActivities.forEach(act => { %>
+                      <li style="display:flex; align-items:flex-start; gap:8px;">
+                        <i data-feather="arrow-right" style="width:14px; height:14px; color:var(--accent-red); flex-shrink:0; margin-top:3px;"></i>
+                        <span><%= act %></span>
+                      </li>
+                    <% }) %>
+                  </ul>
+                </div>
+
+                <div style="background:var(--slate-50); padding:20px; border-radius:var(--radius-md); border:1px solid var(--slate-200);">
+                  <h4 style="font-size:0.9375rem; text-transform:uppercase; color:var(--slate-700); margin-bottom:12px; font-weight:700;">
+                    Documented Deliverables:
+                  </h4>
+                  <ul style="font-size:0.875rem; color:var(--slate-600); display:flex; flex-direction:column; gap:6px;">
+                    <% st.deliverables.forEach(deliv => { %>
+                      <li style="display:flex; align-items:flex-start; gap:8px;">
+                        <i data-feather="file-text" style="width:14px; height:14px; color:var(--primary-navy); flex-shrink:0; margin-top:3px;"></i>
+                        <span><%= deliv %></span>
+                      </li>
+                    <% }) %>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Standards Tagline -->
+              <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                <span style="font-size:0.75rem; text-transform:uppercase; color:var(--slate-500); font-weight:700;">Governing Standards:</span>
+                <% st.standards.forEach(std => { %>
+                  <span class="deliverable-tag"><%= std %></span>
+                <% }) %>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reusable CTA Consultation Banner -->
+  <%- include('../partials/cta-banner') %>
+
+  <!-- Footer -->
+  <%- include('../partials/footer') %>
+</body>
+</html>

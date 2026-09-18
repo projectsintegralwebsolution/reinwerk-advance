@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <%- include('../partials/header') %>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span>Projects</span>
+      </div>
+      <div class="page-hero-content">
+        <span class="eyebrow" style="color:#38bdf8;">Track Record</span>
+        <h1>Featured Turnkey Cleanroom Projects</h1>
+        <p>
+          Discover how REINWERK delivers high-performance controlled environments across Europe, engineered on time, within budget, and certified to the most rigorous standards.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Showcase -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Case Studies</span>
+        <h2 class="section-title">Selected Cleanroom Installations</h2>
+        <p class="section-subtitle">
+          From biopharmaceutical aseptic suites to high-clearance aerospace payload integration bays.
+        </p>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:64px;">
+        <% projects.forEach(proj => { %>
+          <div id="<%= proj.slug %>" class="card" style="padding:40px; border-top: 4px solid var(--primary-navy);">
+            <div style="display:grid; grid-template-columns: 1.15fr 0.85fr; gap:40px; align-items:center;">
+              <div>
+                <div style="display:flex; gap:10px; margin-bottom:12px; flex-wrap:wrap;">
+                  <span class="deliverable-tag" style="background:var(--clean-blue-light); color:var(--primary-navy); font-weight:700;">
+                    <%= proj.clientSector %>
+                  </span>
+                  <span class="deliverable-tag" style="background:#fee2e2; color:var(--accent-red); font-weight:700;">
+                    <%= proj.isoClass %>
+                  </span>
+                  <span class="deliverable-tag">
+                    <%= proj.location %> • <%= proj.completionYear %>
+                  </span>
+                </div>
+
+                <h3 style="font-size:1.75rem; color:var(--slate-900); margin-bottom:16px;"><%= proj.title %></h3>
+                <p style="font-size:1rem; color:var(--slate-600); margin-bottom:24px; line-height:1.7;">
+                  <%= proj.summary %>
+                </p>
+
+                <h4 style="font-size:0.9375rem; text-transform:uppercase; color:var(--slate-500); margin-bottom:12px; font-weight:700;">Scope of Engineering:</h4>
+                <ul style="font-size:0.875rem; color:var(--slate-700); margin-bottom:28px; display:flex; flex-direction:column; gap:8px;">
+                  <% proj.scopeOfWork.forEach(item => { %>
+                    <li style="display:flex; align-items:flex-start; gap:8px;">
+                      <i data-feather="check" style="width:16px; height:16px; color:var(--accent-red); flex-shrink:0; margin-top:2px;"></i>
+                      <span><%= item %></span>
+                    </li>
+                  <% }) %>
+                </ul>
+
+                <!-- Key Metrics Grid -->
+                <div class="grid-4" style="background:var(--slate-50); padding:16px; border-radius:var(--radius-md); border:1px solid var(--slate-200); margin-bottom:24px;">
+                  <% proj.results.forEach(res => { %>
+                    <div>
+                      <div style="font-size:0.75rem; color:var(--slate-500);"><%= res.label %></div>
+                      <div style="font-size:1.125rem; font-weight:800; color:var(--primary-navy);"><%= res.metric %></div>
+                    </div>
+                  <% }) %>
+                </div>
+
+                <a href="/quote" class="btn btn-primary btn-sm">
+                  Request Similar Project Proposal
+                </a>
+              </div>
+
+              <div class="card-img-wrapper" style="height:380px; border-radius:var(--radius-lg);">
+                <img src="<%= proj.thumbnail %>" alt="<%= proj.title %>">
+                <span class="card-badge"><%= proj.area %></span>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reusable CTA Consultation Banner -->
+  <%- include('../partials/cta-banner') %>
+
+  <!-- Footer -->
+  <%- include('../partials/footer') %>
+</body>
+</html>

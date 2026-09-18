@@ -1,0 +1,97 @@
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand & Mission -->
+      <div class="footer-brand">
+        <a href="/" style="display:inline-block; margin-bottom:16px;">
+          <img src="/images/logo.jpg" alt="REINWERK Logo" style="height:40px; background:#ffffff; padding:6px 12px; border-radius:6px; display:inline-block;">
+        </a>
+        <p>
+          REINWERK Reinraum- und Anlagentechnik is an international cleanroom engineering firm specializing in turnkey modular cleanrooms, precision HVAC air filtration systems, and regulatory validation for pharmaceutical, semiconductor, and medical device leaders worldwide.
+        </p>
+        <div style="margin-top: 20px; display:flex; gap:12px;">
+          <a href="/quote" class="btn btn-accent btn-sm">Configure Cleanroom</a>
+          <button class="btn btn-white-outline btn-sm" data-open-iso-modal>ISO Guide</button>
+        </div>
+      </div>
+
+      <!-- Core Capabilities -->
+      <div>
+        <h4 class="footer-title">Products & Services</h4>
+        <ul class="footer-links">
+          <li><a href="/services/modular-cleanrooms">Modular Cleanrooms</a></li>
+          <li><a href="/services/hvac-air-handling">HVAC & Filtration Systems</a></li>
+          <li><a href="/services/cleanroom-equipment">Airlocks & Pass-Throughs</a></li>
+          <li><a href="/services/validation-maintenance">Validation (DQ/IQ/OQ/PQ)</a></li>
+          <li><a href="/services">All Services Overview</a></li>
+          <li><a href="/quote">Request a Quotation</a></li>
+        </ul>
+      </div>
+
+      <!-- Industry Solutions -->
+      <div>
+        <h4 class="footer-title">Industries</h4>
+        <ul class="footer-links">
+          <li><a href="/industries#pharmaceutical-biotech">Pharmaceutical & Biotech</a></li>
+          <li><a href="/industries#semiconductor-microelectronics">Semiconductor & High-Tech</a></li>
+          <li><a href="/industries#medical-devices">Medical Device Assembly</a></li>
+          <li><a href="/industries#aerospace-optical">Aerospace & Optics</a></li>
+          <li><a href="/industries#healthcare-laboratories">Healthcare Laboratories</a></li>
+          <li><a href="/projects">Case Studies & Projects</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact & Standards -->
+      <div>
+        <h4 class="footer-title">Engineering Desk</h4>
+        <div class="footer-contact-item">
+          <i data-feather="map-pin" style="width:18px; height:18px; color:var(--accent-red); flex-shrink:0;"></i>
+          <span>Industriestraße 42, 70565 Stuttgart, Germany</span>
+        </div>
+        <div class="footer-contact-item">
+          <i data-feather="phone" style="width:18px; height:18px; color:#38bdf8; flex-shrink:0;"></i>
+          <a href="tel:+497118947200" style="color:var(--white);">+49 (0) 711 8947 200</a>
+        </div>
+        <div class="footer-contact-item">
+          <i data-feather="mail" style="width:18px; height:18px; color:#38bdf8; flex-shrink:0;"></i>
+          <a href="mailto:info@reinwerk-cleanroom.com" style="color:var(--white);">info@reinwerk-cleanroom.com</a>
+        </div>
+        <div class="footer-contact-item">
+          <i data-feather="clock" style="width:18px; height:18px; color:var(--slate-400); flex-shrink:0;"></i>
+          <span>Mon - Fri: 08:00 - 18:00 CET</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Standards & Legal -->
+    <div class="footer-bottom">
+      <div>
+        © <%= currentYear %> REINWERK Reinraum- und Anlagentechnik GmbH. All rights reserved.
+      </div>
+      <div style="display:flex; gap:20px; flex-wrap:wrap;">
+        <span>DIN EN ISO 14644-1:2015</span>
+        <span>EU-GMP Annex 1</span>
+        <span>VDI 2083</span>
+        <span>FDA 21 CFR Part 211</span>
+        <span>ISO 13485</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast Container -->
+<div id="appToast" class="toast"></div>
+
+<!-- Include ISO Guide Modal -->
+<%- include('./iso-modal') %>
+
+<!-- Scripts -->
+<script>
+  // Initialize Feather Icons
+  feather.replace();
+</script>
+<script src="/js/main.js"></script>
+<script src="/js/iso-guide.js"></script>
+
+

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <%- include('../partials/header') %>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <span class="eyebrow" style="color:#38bdf8;">Precision Cleanroom Engineering</span>
+          <h1>Turnkey Cleanrooms Engineered for Critical Environments</h1>
+          <p>
+            REINWERK Reinraum- und Anlagentechnik delivers German-engineered modular cleanrooms, precision HVAC air filtration, and complete regulatory validation compliant with ISO 14644 and EU-GMP Annex 1.
+          </p>
+          <div class="hero-cta">
+            <a href="/quote" class="btn btn-accent btn-lg">
+              <i data-feather="calculator"></i>
+              Request a Cleanroom Quote
+            </a>
+            <a href="/services" class="btn btn-white-outline btn-lg">
+              <i data-feather="grid"></i>
+              Explore Our Capabilities
+            </a>
+          </div>
+
+          <div class="hero-badges">
+            <div class="hero-badge-item">
+              <i data-feather="shield"></i>
+              <span>ISO 14644-1 Certified</span>
+            </div>
+            <div class="hero-badge-item">
+              <i data-feather="check-circle"></i>
+              <span>EU-GMP Annex 1 (A-D)</span>
+            </div>
+            <div class="hero-badge-item">
+              <i data-feather="award"></i>
+              <span>Turnkey DQ/IQ/OQ/PQ</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-image-wrapper">
+            <img src="/images/cleanrooms/modular-suite.jpg" alt="REINWERK Modular Cleanroom Suite">
+          </div>
+          <div class="hero-card-floating">
+            <div class="stat-num">99.995%</div>
+            <div class="stat-label">H14 HEPA Contamination Elimination & Laminar Airflow Protection</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ISO Classification Quick Reference Bar -->
+  <div class="iso-ticker-bar">
+    <div class="container iso-ticker-inner">
+      <div class="iso-ticker-title">
+        <i data-feather="filter" style="color:var(--primary-navy); width:18px; height:18px;"></i>
+        <span>Cleanroom Classification Range:</span>
+      </div>
+      <div class="iso-chips">
+        <button class="iso-chip" data-open-iso-modal>ISO 3 / Fed 1</button>
+        <button class="iso-chip" data-open-iso-modal>ISO 4 / Fed 10</button>
+        <button class="iso-chip active" data-open-iso-modal>ISO 5 / GMP A/B</button>
+        <button class="iso-chip" data-open-iso-modal>ISO 6 / GMP B</button>
+        <button class="iso-chip" data-open-iso-modal>ISO 7 / GMP C</button>
+        <button class="iso-chip" data-open-iso-modal>ISO 8 / GMP D</button>
+        <button class="iso-chip" data-open-iso-modal style="background:var(--accent-red); color:var(--white); border-color:var(--accent-red);">
+          <i data-feather="help-circle" style="width:14px; height:14px;"></i>
+          Compare Standards
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Core Services Overview -->
+  <section class="section section-bg-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Our Core Capabilities</span>
+        <h2 class="section-title">End-to-End Cleanroom Systems & Services</h2>
+        <p class="section-subtitle">
+          From architectural monobloc envelopes to aerodynamic air filtration and formal regulatory certification, REINWERK provides single-source accountability.
+        </p>
+      </div>
+
+      <div class="grid-4">
+        <% services.forEach(service => { %>
+          <div class="card">
+            <div class="card-img-wrapper">
+              <img src="<%= service.heroImage %>" alt="<%= service.title %>">
+              <span class="card-badge"><%= service.isoRange %></span>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title"><%= service.title %></h3>
+              <p class="card-text"><%= service.shortDescription %></p>
+              <a href="/services/<%= service.slug %>" class="card-link">
+                View Specifications <i data-feather="arrow-right" style="width:15px; height:15px;"></i>
+              </a>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+
+      <div style="text-align:center; margin-top:48px;">
+        <a href="/services" class="btn btn-primary">
+          Browse All Products & Technical Specifications
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Credibility & Engineering Metrics -->
+  <section class="section section-bg-dark">
+    <div class="container">
+      <div class="grid-4" style="text-align: center;">
+        <div style="padding: 24px;">
+          <div style="font-size:3rem; font-weight:800; color:#38bdf8; font-family:var(--font-display);">100%</div>
+          <div style="font-size:1.125rem; font-weight:700; margin-top:8px;">Turnkey Responsibility</div>
+          <p style="font-size:0.875rem; color:var(--slate-300); margin-top:8px;">Consultation, 3D BIM design, manufacturing, erection & handover.</p>
+        </div>
+        <div style="padding: 24px;">
+          <div style="font-size:3rem; font-weight:800; color:#38bdf8; font-family:var(--font-display);">< 0.3 µm</div>
+          <div style="font-size:1.125rem; font-weight:700; margin-top:8px;">Sub-Micron Control</div>
+          <p style="font-size:0.875rem; color:var(--slate-300); margin-top:8px;">Certified terminal H14 HEPA and U15 ULPA airborne particle trapping.</p>
+        </div>
+        <div style="padding: 24px;">
+          <div style="font-size:3rem; font-weight:800; color:#38bdf8; font-family:var(--font-display);">50%</div>
+          <div style="font-size:1.125rem; font-weight:700; margin-top:8px;">Faster Installation</div>
+          <p style="font-size:0.875rem; color:var(--slate-300); margin-top:8px;">Precision off-site pre-assembly minimizes on-site downtime.</p>
+        </div>
+        <div style="padding: 24px;">
+          <div style="font-size:3rem; font-weight:800; color:#38bdf8; font-family:var(--font-display);">DQ / PQ</div>
+          <div style="font-size:1.125rem; font-weight:700; margin-top:8px;">Audit-Ready Validation</div>
+          <p style="font-size:0.875rem; color:var(--slate-300); margin-top:8px;">Full compliance with EU-GMP Annex 1, FDA 21 CFR, and ISO 14644.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries We Serve -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Industry Applications</span>
+        <h2 class="section-title">Engineered for Regulated & High-Tech Sectors</h2>
+        <p class="section-subtitle">
+          Every industry has unique contamination profiles. We tailor particle limits, airflow dynamics, and materials to match your regulatory framework.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <% industries.slice(0, 3).forEach(ind => { %>
+          <div class="card">
+            <div class="card-img-wrapper">
+              <img src="<%= ind.heroImage %>" alt="<%= ind.title %>">
+              <span class="card-badge"><%= ind.isoClass %></span>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title"><%= ind.title %></h3>
+              <p class="card-text"><%= ind.shortDescription %></p>
+              <div style="margin-bottom:16px;">
+                <span style="font-size:12px; font-weight:700; text-transform:uppercase; color:var(--slate-500); display:block; margin-bottom:6px;">Standard:</span>
+                <span class="deliverable-tag" style="color:var(--accent-red); font-weight:700;"><%= ind.gmpGrade %></span>
+              </div>
+              <a href="/industries#<%= ind.slug %>" class="card-link">
+                Explore Sector Solutions <i data-feather="arrow-right" style="width:15px; height:15px;"></i>
+              </a>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+
+      <div style="text-align:center; margin-top:40px;">
+        <a href="/industries" class="btn btn-outline">
+          View All 5 Target Industry Sectors
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5-Stage Engineering Process Preview -->
+  <section class="section section-bg-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">The REINWERK Methodology</span>
+        <h2 class="section-title">5-Phase Turnkey Cleanroom Execution</h2>
+        <p class="section-subtitle">
+          A predictable, transparent lifecycle methodology ensuring on-time delivery and audit-ready performance.
+        </p>
+      </div>
+
+      <div class="process-timeline">
+        <% processSteps.slice(0, 3).forEach(st => { %>
+          <div class="process-card">
+            <div class="process-step-num"><%= st.stepNumber %></div>
+            <div class="process-details">
+              <h3><%= st.title %></h3>
+              <span class="process-subtitle"><%= st.subtitle %></span>
+              <p style="color:var(--slate-600); font-size:0.9375rem;"><%= st.description %></p>
+              <div class="process-deliverables">
+                <% st.deliverables.slice(0, 3).forEach(d => { %>
+                  <span class="deliverable-tag"><%= d %></span>
+                <% }) %>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+
+      <div style="text-align:center; margin-top:40px;">
+        <a href="/process" class="btn btn-primary">
+          Explore the Full 5-Stage Methodology & BIM Technology
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects Preview -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Proven Results</span>
+        <h2 class="section-title">Featured Turnkey Installations</h2>
+        <p class="section-subtitle">
+          From multi-room pharmaceutical suites in Germany to microelectronics cleanrooms in Silicon Saxony.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <% featuredProjects.forEach(proj => { %>
+          <div class="card">
+            <div class="card-img-wrapper">
+              <img src="<%= proj.thumbnail %>" alt="<%= proj.title %>">
+              <span class="card-badge"><%= proj.isoClass %></span>
+            </div>
+            <div class="card-body">
+              <div style="font-size:12px; font-weight:700; color:var(--slate-500); text-transform:uppercase; margin-bottom:4px;">
+                <%= proj.clientSector %> • <%= proj.location %>
+              </div>
+              <h3 class="card-title" style="font-size:1.15rem;"><%= proj.title %></h3>
+              <p class="card-text" style="font-size:0.875rem;"><%= proj.summary %></p>
+              
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; background:var(--slate-50); padding:10px; border-radius:var(--radius-sm); margin-bottom:16px;">
+                <% proj.results.slice(0, 2).forEach(r => { %>
+                  <div>
+                    <div style="font-size:0.75rem; color:var(--slate-500);"><%= r.label %></div>
+                    <div style="font-size:0.9375rem; font-weight:700; color:var(--primary-navy);"><%= r.metric %></div>
+                  </div>
+                <% }) %>
+              </div>
+
+              <a href="/projects#<%= proj.slug %>" class="card-link">
+                View Case Study <i data-feather="arrow-right" style="width:15px; height:15px;"></i>
+              </a>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+
+      <div style="text-align:center; margin-top:40px;">
+        <a href="/projects" class="btn btn-outline">
+          View All Cleanroom Projects
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reusable CTA Consultation Banner -->
+  <%- include('../partials/cta-banner') %>
+
+  <!-- Footer -->
+  <%- include('../partials/footer') %>
+</body>
+</html>
+
