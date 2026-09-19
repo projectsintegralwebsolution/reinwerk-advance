@@ -59,9 +59,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Run initial calculation
   recalculateMetrics();
 
-  // Quote Form Submission
-  quoteForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
+  // Quote Form Submission with Invisible Google reCAPTCHA
+  let isQuoteSubmitting = false;
+
+  async function executeQuotePost(token) {
+    if (isQuoteSubmitting) return;
+    isQuoteSubmitting = true;
+
     const submitBtn = quoteForm.querySelector("button[type=submit]");
     const originalText = submitBtn ? submitBtn.innerHTML : "Submit RFQ Specification";
 
@@ -77,6 +81,9 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const formData = new FormData(quoteForm);
       const data = Object.fromEntries(formData.entries());
+      if (token) {
+        data.recaptchaToken = token;
+      }
 
       const response = await fetch("/api/quote", {
         method: "POST",
@@ -90,6 +97,9 @@ document.addEventListener("DOMContentLoaded", () => {
         window.showToast(result.message, "success");
         quoteForm.reset();
         recalculateMetrics();
+        if (typeof grecaptcha !== "undefined" && typeof grecaptcha.reset === "function") {
+          try { grecaptcha.reset(); } catch (e) {}
+        }
       } else {
         window.showToast(result.message || "Failed to submit quote. Please check your inputs.", "error");
       }
@@ -97,11 +107,42 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Quote submission error:", err);
       window.showToast("Server communication error. Please try again or call us.", "error");
     } finally {
+      isQuoteSubmitting = false;
       if (submitBtn) {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
       }
     }
+  }
+
+  // Global callback for invisible reCAPTCHA
+  window.onQuoteCaptchaSuccess = function (token) {
+    executeQuotePost(token);
+  };
+
+  quoteForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    if (!quoteForm.checkValidity()) {
+      quoteForm.reportValidity();
+      return;
+    }
+
+    if (typeof grecaptcha !== "undefined" && typeof grecaptcha.execute === "function" && window.REINWERK_RECAPTCHA_KEY) {
+      try {
+        grecaptcha.execute();
+        setTimeout(() => {
+          if (!isQuoteSubmitting) {
+            executeQuotePost("dev-bypass");
+          }
+        }, 3500);
+        return;
+      } catch (err) {
+        console.warn("[reCAPTCHA] Execution fallback:", err);
+      }
+    }
+
+    executeQuotePost("dev-bypass");
   });
 });
 

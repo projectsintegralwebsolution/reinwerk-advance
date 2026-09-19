@@ -44,6 +44,9 @@ const pages = [
   { url: "/process", out: "process/index.html", alias: "process.html" },
   { url: "/quote", out: "quote/index.html", alias: "quote.html" },
   { url: "/contact", out: "contact/index.html", alias: "contact.html" },
+  { url: "/terms", out: "terms/index.html", alias: "terms.html" },
+  { url: "/privacy", out: "privacy/index.html", alias: "privacy.html" },
+  { url: "/disclaimer", out: "disclaimer/index.html", alias: "disclaimer.html" },
   { url: "/404", out: "404.html" }
 ];
 

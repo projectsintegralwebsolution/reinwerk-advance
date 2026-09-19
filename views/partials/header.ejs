@@ -4,11 +4,11 @@
     <div class="topbar-badges">
       <div class="topbar-badge">
         <span class="dot"></span>
-        <span>Certified to DIN EN ISO 14644-1:2015 & EU-GMP Annex 1</span>
+        <span><%= currentLang === 'de' ? 'Zertifiziert nach DIN EN ISO 14644-1:2015 & EU-GMP Annex 1' : 'Certified to DIN EN ISO 14644-1:2015 & EU-GMP Annex 1' %></span>
       </div>
       <div class="topbar-badge" style="display:none; @media(min-width:992px){display:flex;}">
         <i data-feather="shield" style="width:14px; height:14px;"></i>
-        <span>German Engineering Precision</span>
+        <span><%= currentLang === 'de' ? 'Deutsche Ingenieurspräzision' : 'German Engineering Precision' %></span>
       </div>
     </div>
     <div class="topbar-contact">
@@ -20,6 +20,11 @@
         <i data-feather="mail" style="width:13px; height:13px;"></i>
         <span>info@reinwerk-cleanroom.com</span>
       </a>
+      <div class="topbar-lang-switcher">
+        <a href="?lang=de" class="lang-btn <%= currentLang === 'de' ? 'active' : '' %>" title="Deutsch">DE</a>
+        <span class="lang-divider">|</span>
+        <a href="?lang=en" class="lang-btn <%= currentLang === 'en' ? 'active' : '' %>" title="English">EN</a>
+      </div>
     </div>
   </div>
 </div>
@@ -36,21 +41,21 @@
       <!-- Navigation Menu -->
       <ul class="nav-menu" id="navMenu">
         <li class="nav-item">
-          <a href="/" class="nav-link <%= activeRoute === 'home' ? 'active' : '' %>">Home</a>
+          <a href="/" class="nav-link <%= activeRoute === 'home' ? 'active' : '' %>"><%= currentLang === 'de' ? 'Startseite' : 'Home' %></a>
         </li>
         <li class="nav-item">
-          <a href="/about" class="nav-link <%= activeRoute === 'about' ? 'active' : '' %>">About Us</a>
+          <a href="/about" class="nav-link <%= activeRoute === 'about' ? 'active' : '' %>"><%= currentLang === 'de' ? 'Über uns' : 'About Us' %></a>
         </li>
 
         <!-- Services Dropdown -->
         <li class="nav-item has-dropdown">
           <a href="/services" class="nav-link <%= activeRoute === 'services' ? 'active' : '' %>">
-            Products & Services <i data-feather="chevron-down" style="width:14px; height:14px;"></i>
+            <%= currentLang === 'de' ? 'Produkte & Leistungen' : 'Products & Services' %> <i data-feather="chevron-down" style="width:14px; height:14px;"></i>
           </a>
           <div class="dropdown-menu">
             <a href="/services" class="dropdown-link" style="border-bottom: 1px solid var(--slate-100); margin-bottom: 6px;">
-              <span class="dropdown-title">All Services Overview</span>
-              <span class="dropdown-desc">Explore our complete cleanroom capabilities</span>
+              <span class="dropdown-title"><%= currentLang === 'de' ? 'Alle Leistungen im Überblick' : 'All Services Overview' %></span>
+              <span class="dropdown-desc"><%= currentLang === 'de' ? 'Entdecken Sie unser gesamtes Reinraum-Portfolio' : 'Explore our complete cleanroom capabilities' %></span>
             </a>
             <% if (typeof servicesList !== 'undefined') { %>
               <% servicesList.forEach(s => { %>
@@ -66,12 +71,12 @@
         <!-- Industries Dropdown -->
         <li class="nav-item has-dropdown">
           <a href="/industries" class="nav-link <%= activeRoute === 'industries' ? 'active' : '' %>">
-            Industries <i data-feather="chevron-down" style="width:14px; height:14px;"></i>
+            <%= currentLang === 'de' ? 'Branchen' : 'Industries' %> <i data-feather="chevron-down" style="width:14px; height:14px;"></i>
           </a>
           <div class="dropdown-menu">
             <a href="/industries" class="dropdown-link" style="border-bottom: 1px solid var(--slate-100); margin-bottom: 6px;">
-              <span class="dropdown-title">All Industry Sectors</span>
-              <span class="dropdown-desc">Custom cleanrooms tailored to your sector</span>
+              <span class="dropdown-title"><%= currentLang === 'de' ? 'Alle Branchenlösungen' : 'All Industry Sectors' %></span>
+              <span class="dropdown-desc"><%= currentLang === 'de' ? 'Maßgeschneiderte Reinräume nach Industrie' : 'Custom cleanrooms tailored to your sector' %></span>
             </a>
             <% if (typeof industriesList !== 'undefined') { %>
               <% industriesList.forEach(ind => { %>
@@ -85,24 +90,29 @@
         </li>
 
         <li class="nav-item">
-          <a href="/why-choose-us" class="nav-link <%= activeRoute === 'why-choose-us' ? 'active' : '' %>">Why Choose Us</a>
+          <a href="/why-choose-us" class="nav-link <%= activeRoute === 'why-choose-us' ? 'active' : '' %>"><%= currentLang === 'de' ? 'Warum REINWERK' : 'Why Choose Us' %></a>
         </li>
         <li class="nav-item">
-          <a href="/projects" class="nav-link <%= activeRoute === 'projects' ? 'active' : '' %>">Projects</a>
+          <a href="/projects" class="nav-link <%= activeRoute === 'projects' ? 'active' : '' %>"><%= currentLang === 'de' ? 'Projekte' : 'Projects' %></a>
         </li>
         <li class="nav-item">
-          <a href="/process" class="nav-link <%= activeRoute === 'process' ? 'active' : '' %>">Our Process</a>
+          <a href="/process" class="nav-link <%= activeRoute === 'process' ? 'active' : '' %>"><%= currentLang === 'de' ? 'Unser Prozess' : 'Our Process' %></a>
         </li>
         <li class="nav-item">
-          <a href="/contact" class="nav-link <%= activeRoute === 'contact' ? 'active' : '' %>">Contact Us</a>
+          <a href="/contact" class="nav-link <%= activeRoute === 'contact' ? 'active' : '' %>"><%= currentLang === 'de' ? 'Kontakt' : 'Contact Us' %></a>
         </li>
       </ul>
 
       <!-- Nav CTA -->
       <div class="nav-cta">
+        <div class="lang-switcher">
+          <a href="?lang=de" class="lang-btn <%= currentLang === 'de' ? 'active' : '' %>" title="Deutsch">DE</a>
+          <span class="lang-divider">|</span>
+          <a href="?lang=en" class="lang-btn <%= currentLang === 'en' ? 'active' : '' %>" title="English">EN</a>
+        </div>
         <a href="/quote" class="btn btn-accent btn-sm">
           <i data-feather="file-text" style="width:15px; height:15px;"></i>
-          Request a Quote
+          <span><%= currentLang === 'de' ? 'Angebot anfordern' : 'Request a Quote' %></span>
         </a>
         <button class="mobile-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu">
           <i data-feather="menu"></i>
@@ -111,4 +121,5 @@
     </nav>
   </div>
 </header>
+
 

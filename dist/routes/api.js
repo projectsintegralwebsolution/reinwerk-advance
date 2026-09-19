@@ -1,6 +1,52 @@
 import { Router } from "express";
 import { sendContactEmail, sendQuoteEmail } from "../services/mailer.js";
 export const apiRouter = Router();
+// Helper to verify invisible Google reCAPTCHA
+async function verifyGoogleRecaptcha(token, remoteIp) {
+    const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+    // If no secret key is set, allow bypass
+    if (!secretKey) {
+        return { success: true };
+    }
+    // If token is missing
+    if (!token) {
+        // If dev mode or official test key, allow graceful pass
+        if (process.env.NODE_ENV === "development" || secretKey === "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe") {
+            return { success: true };
+        }
+        return { success: false, message: "Security verification failed (reCAPTCHA token missing). Please try again." };
+    }
+    // Official Google test secret key always passes
+    if (secretKey === "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe") {
+        return { success: true };
+    }
+    try {
+        const params = new URLSearchParams();
+        params.append("secret", secretKey);
+        params.append("response", token);
+        if (remoteIp) {
+            params.append("remoteip", remoteIp);
+        }
+        const response = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: params.toString()
+        });
+        const data = (await response.json());
+        if (!data.success) {
+            console.warn("[reCAPTCHA] Verification failed:", data["error-codes"]);
+            return { success: false, message: "reCAPTCHA security check failed. Please refresh the page and submit again." };
+        }
+        return { success: true };
+    }
+    catch (error) {
+        console.error("[reCAPTCHA] Verification request error:", error);
+        if (process.env.NODE_ENV === "development") {
+            return { success: true };
+        }
+        return { success: false, message: "Unable to verify security token. Please try again." };
+    }
+}
 // Health check endpoint
 apiRouter.get("/health", (req, res) => {
     res.json({
@@ -12,7 +58,15 @@ apiRouter.get("/health", (req, res) => {
 // Contact Form Submission
 apiRouter.post("/contact", async (req, res) => {
     try {
-        const { name, email, phone, company, sector, serviceInterest, message } = req.body;
+        const { name, email, phone, company, sector, serviceInterest, message, recaptchaToken } = req.body;
+        // Verify invisible Google reCAPTCHA
+        const captchaCheck = await verifyGoogleRecaptcha(recaptchaToken || req.body["g-recaptcha-response"], req.ip);
+        if (!captchaCheck.success) {
+            return res.status(400).json({
+                success: false,
+                message: captchaCheck.message || "Security verification failed. Please try again."
+            });
+        }
         if (!name || !email || !message) {
             return res.status(400).json({
                 success: false,
@@ -55,7 +109,15 @@ apiRouter.post("/contact", async (req, res) => {
 // Cleanroom Specification & Quote Request Submission
 apiRouter.post("/quote", async (req, res) => {
     try {
-        const { fullName, company, email, phone, industry, targetStandard, roomLength, roomWidth, roomHeight, wallType, airflowType, airlockCount, timeline, targetBudget, additionalNotes } = req.body;
+        const { fullName, company, email, phone, industry, targetStandard, roomLength, roomWidth, roomHeight, wallType, airflowType, airlockCount, timeline, targetBudget, additionalNotes, recaptchaToken } = req.body;
+        // Verify invisible Google reCAPTCHA
+        const captchaCheck = await verifyGoogleRecaptcha(recaptchaToken || req.body["g-recaptcha-response"], req.ip);
+        if (!captchaCheck.success) {
+            return res.status(400).json({
+                success: false,
+                message: captchaCheck.message || "Security verification failed. Please try again."
+            });
+        }
         if (!fullName || !company || !email || !phone || !industry || !targetStandard) {
             return res.status(400).json({
                 success: false,

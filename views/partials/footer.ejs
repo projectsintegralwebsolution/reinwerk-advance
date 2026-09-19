@@ -5,46 +5,48 @@
       <!-- Brand & Mission -->
       <div class="footer-brand">
         <a href="/" style="display:inline-block; margin-bottom:16px;">
-          <img src="/images/logo.jpg" alt="REINWERK Logo" style="height:40px; background:#ffffff; padding:6px 12px; border-radius:6px; display:inline-block;">
+          <img src="/images/logo.jpg" alt="REINWERK Logo" style="height:54px; background:#ffffff; padding:7px 14px; border-radius:8px; display:inline-block;">
         </a>
         <p>
-          REINWERK Reinraum- und Anlagentechnik is an international cleanroom engineering firm specializing in turnkey modular cleanrooms, precision HVAC air filtration systems, and regulatory validation for pharmaceutical, semiconductor, and medical device leaders worldwide.
+          <%= currentLang === 'de'
+            ? 'REINWERK Reinraum- und Anlagentechnik ist ein führendes Ingenieurunternehmen für schlüsselfertige modulare Reinräume, präzise HLK-Klimatechnik und regulatorische Qualifizierung nach ISO 14644 und EU-GMP.'
+            : 'REINWERK Reinraum- und Anlagentechnik is an international cleanroom engineering firm specializing in turnkey modular cleanrooms, precision HVAC air filtration systems, and regulatory validation for pharmaceutical, semiconductor, and medical device leaders worldwide.' %>
         </p>
-        <div style="margin-top: 20px; display:flex; gap:12px;">
-          <a href="/quote" class="btn btn-accent btn-sm">Configure Cleanroom</a>
-          <button class="btn btn-white-outline btn-sm" data-open-iso-modal>ISO Guide</button>
+        <div style="margin-top: 20px; display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="/quote" class="btn btn-accent btn-sm"><%= currentLang === 'de' ? 'Reinraum konfigurieren' : 'Configure Cleanroom' %></a>
+          <button class="btn btn-white-outline btn-sm" data-open-iso-modal><%= currentLang === 'de' ? 'ISO Leitfaden' : 'ISO Guide' %></button>
         </div>
       </div>
 
       <!-- Core Capabilities -->
       <div>
-        <h4 class="footer-title">Products & Services</h4>
+        <h4 class="footer-title"><%= currentLang === 'de' ? 'Produkte & Leistungen' : 'Products & Services' %></h4>
         <ul class="footer-links">
-          <li><a href="/services/modular-cleanrooms">Modular Cleanrooms</a></li>
-          <li><a href="/services/hvac-air-handling">HVAC & Filtration Systems</a></li>
-          <li><a href="/services/cleanroom-equipment">Airlocks & Pass-Throughs</a></li>
-          <li><a href="/services/validation-maintenance">Validation (DQ/IQ/OQ/PQ)</a></li>
-          <li><a href="/services">All Services Overview</a></li>
-          <li><a href="/quote">Request a Quotation</a></li>
+          <li><a href="/services/modular-cleanrooms"><%= currentLang === 'de' ? 'Modulare Reinräume' : 'Modular Cleanrooms' %></a></li>
+          <li><a href="/services/hvac-air-handling"><%= currentLang === 'de' ? 'HLK- & Klimatechnik' : 'HVAC & Filtration Systems' %></a></li>
+          <li><a href="/services/cleanroom-equipment"><%= currentLang === 'de' ? 'Schleusen & Durchreichen' : 'Airlocks & Pass-Throughs' %></a></li>
+          <li><a href="/services/validation-maintenance"><%= currentLang === 'de' ? 'Validierung (DQ/IQ/OQ/PQ)' : 'Validation (DQ/IQ/OQ/PQ)' %></a></li>
+          <li><a href="/services"><%= currentLang === 'de' ? 'Alle Leistungen im Überblick' : 'All Services Overview' %></a></li>
+          <li><a href="/quote"><%= currentLang === 'de' ? 'Angebot anfordern' : 'Request a Quotation' %></a></li>
         </ul>
       </div>
 
       <!-- Industry Solutions -->
       <div>
-        <h4 class="footer-title">Industries</h4>
+        <h4 class="footer-title"><%= currentLang === 'de' ? 'Branchen' : 'Industries' %></h4>
         <ul class="footer-links">
-          <li><a href="/industries#pharmaceutical-biotech">Pharmaceutical & Biotech</a></li>
-          <li><a href="/industries#semiconductor-microelectronics">Semiconductor & High-Tech</a></li>
-          <li><a href="/industries#medical-devices">Medical Device Assembly</a></li>
-          <li><a href="/industries#aerospace-optical">Aerospace & Optics</a></li>
-          <li><a href="/industries#healthcare-laboratories">Healthcare Laboratories</a></li>
-          <li><a href="/projects">Case Studies & Projects</a></li>
+          <li><a href="/industries#pharmaceutical-biotech"><%= currentLang === 'de' ? 'Pharmazie & Biotechnologie' : 'Pharmaceutical & Biotech' %></a></li>
+          <li><a href="/industries#semiconductor-microelectronics"><%= currentLang === 'de' ? 'Halbleiter & Mikroelektronik' : 'Semiconductor & High-Tech' %></a></li>
+          <li><a href="/industries#medical-devices"><%= currentLang === 'de' ? 'Medizintechnik' : 'Medical Device Assembly' %></a></li>
+          <li><a href="/industries#aerospace-optical"><%= currentLang === 'de' ? 'Luft- & Raumfahrt / Optik' : 'Aerospace & Optics' %></a></li>
+          <li><a href="/industries#healthcare-laboratories"><%= currentLang === 'de' ? 'Laboratorien & Kliniken' : 'Healthcare Laboratories' %></a></li>
+          <li><a href="/projects"><%= currentLang === 'de' ? 'Referenzprojekte' : 'Case Studies & Projects' %></a></li>
         </ul>
       </div>
 
       <!-- Contact & Standards -->
       <div>
-        <h4 class="footer-title">Engineering Desk</h4>
+        <h4 class="footer-title"><%= currentLang === 'de' ? 'Technisches Büro' : 'Engineering Desk' %></h4>
         <div class="footer-contact-item">
           <i data-feather="map-pin" style="width:18px; height:18px; color:var(--accent-red); flex-shrink:0;"></i>
           <span>Industriestraße 42, 70565 Stuttgart, Germany</span>
@@ -59,26 +61,54 @@
         </div>
         <div class="footer-contact-item">
           <i data-feather="clock" style="width:18px; height:18px; color:var(--slate-400); flex-shrink:0;"></i>
-          <span>Mon - Fri: 08:00 - 18:00 CET</span>
+          <span><%= currentLang === 'de' ? 'Mo – Fr: 08:00 – 18:00 Uhr MEZ' : 'Mon – Fri: 08:00 – 18:00 CET' %></span>
         </div>
       </div>
     </div>
 
-    <!-- Standards & Legal -->
+    <!-- Standards & Legal Links -->
     <div class="footer-bottom">
       <div>
-        © <%= currentYear %> REINWERK Reinraum- und Anlagentechnik GmbH. All rights reserved.
+        © <%= currentYear %> REINWERK Reinraum- und Anlagentechnik GmbH. <%= currentLang === 'de' ? 'Alle Rechte vorbehalten.' : 'All rights reserved.' %>
       </div>
-      <div style="display:flex; gap:20px; flex-wrap:wrap;">
-        <span>DIN EN ISO 14644-1:2015</span>
+      <div style="display:flex; gap:16px; flex-wrap:wrap; font-size:0.875rem;">
+        <a href="/terms" style="color:var(--slate-400);"><%= currentLang === 'de' ? 'Nutzungsbedingungen' : 'Terms of Use' %></a>
+        <span style="color:var(--slate-600);">•</span>
+        <a href="/privacy" style="color:var(--slate-400);"><%= currentLang === 'de' ? 'Datenschutz (DSGVO)' : 'Privacy Policy' %></a>
+        <span style="color:var(--slate-600);">•</span>
+        <a href="/disclaimer" style="color:var(--slate-400);"><%= currentLang === 'de' ? 'Impressum & Disclaimer' : 'Disclaimer & Imprint' %></a>
+      </div>
+      <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap; font-size:0.8125rem; color:var(--slate-500);">
+        <span>DIN EN ISO 14644-1</span>
         <span>EU-GMP Annex 1</span>
         <span>VDI 2083</span>
-        <span>FDA 21 CFR Part 211</span>
-        <span>ISO 13485</span>
+        <span>FDA 21 CFR 211</span>
+        <div style="display:inline-flex; align-items:center; gap:6px; font-size:0.75rem; color:var(--slate-400); background:rgba(255,255,255,0.06); padding:4px 10px; border-radius:4px; border:1px solid rgba(255,255,255,0.12);">
+          <svg viewBox="0 0 48 48" width="15" height="15" style="display:inline-block; vertical-align:middle;">
+            <path fill="#4285F4" d="M24 4.5c5.3 0 10.1 2.1 13.7 5.5l-5.6 5.6C29.8 13.5 27 12.3 24 12.3c-6.1 0-11.2 4.4-12.4 10.2H4.1C5.6 12.4 13.9 4.5 24 4.5z"/>
+            <path fill="#34A853" d="M43.9 24c0-1.4-.2-2.7-.5-4H24v8.5h11.2c-.6 3.1-2.4 5.7-5 7.4l6.1 6.1C39.9 38.6 43.9 31.9 43.9 24z"/>
+            <path fill="#FBBC05" d="M11.6 22.5c-.3 1.1-.5 2.2-.5 3.5s.2 2.4.5 3.5L4.1 35.7C2.2 32.2 1.1 28.2 1.1 24s1.1-8.2 3-11.7l7.5 10.2z"/>
+            <path fill="#EA4335" d="M24 43.5c5.4 0 10.2-1.8 13.9-4.9l-6.1-6.1c-2.1 1.4-4.7 2.2-7.8 2.2-6.1 0-11.2-4.4-12.4-10.2H4.1c1.5 10.1 9.8 19 19.9 19z"/>
+          </svg>
+          <span><%= currentLang === 'de' ? 'Geschützt durch' : 'Protected by' %> <strong style="color:#ffffff;">Google reCAPTCHA</strong></span>
+        </div>
       </div>
     </div>
   </div>
 </footer>
+
+<!-- Invisible Google reCAPTCHA Global Badge Container (Fixed Bottom-Left) -->
+<% if (typeof recaptchaSiteKey !== 'undefined' && recaptchaSiteKey) { %>
+  <div class="g-recaptcha" data-sitekey="<%= recaptchaSiteKey %>" data-size="invisible" data-badge="bottomleft"></div>
+<% } %>
+
+<!-- Scroll to Top ("Bottom to Top") Floating Button -->
+<button id="scrollToTopBtn" class="scroll-top-btn" aria-label="<%= currentLang === 'de' ? 'Nach oben scrollen' : 'Scroll to top' %>" title="<%= currentLang === 'de' ? 'Nach oben scrollen' : 'Scroll to top' %>">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="18 15 12 9 6 15"></polyline>
+  </svg>
+  <span class="scroll-top-text">TOP</span>
+</button>
 
 <!-- Toast Container -->
 <div id="appToast" class="toast"></div>
@@ -90,8 +120,30 @@
 <script>
   // Initialize Feather Icons
   feather.replace();
+
+  // Instant Bulletproof Scroll-to-Top Listener (triggers after 60px)
+  (function() {
+    var btn = document.getElementById('scrollToTopBtn');
+    if (!btn) return;
+    function checkScroll() {
+      var scrolled = window.pageYOffset || document.documentElement.scrollTop || 0;
+      if (scrolled > 60) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    }
+    window.addEventListener('scroll', checkScroll, { passive: true });
+    window.addEventListener('load', checkScroll);
+    checkScroll();
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
 </script>
 <script src="/js/main.js"></script>
 <script src="/js/iso-guide.js"></script>
+
 
 

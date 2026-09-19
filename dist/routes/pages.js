@@ -93,3 +93,24 @@ pagesRouter.get("/quote", (req, res) => {
         industries: industriesData
     });
 });
+// 11. Terms of Use / Nutzungsbedingungen
+pagesRouter.get(["/terms", "/agb"], (req, res) => {
+    const isDe = res.locals.currentLang === "de";
+    res.render("pages/terms", {
+        ...getCommonData("terms", isDe ? "Allgemeine Nutzungsbedingungen" : "General Terms of Use", isDe ? "Nutzungsbedingungen der REINWERK Reinraum- und Anlagentechnik GmbH." : "Terms and conditions governing access to REINWERK website.")
+    });
+});
+// 12. Privacy Policy / Datenschutzerklärung (DSGVO)
+pagesRouter.get(["/privacy", "/datenschutz"], (req, res) => {
+    const isDe = res.locals.currentLang === "de";
+    res.render("pages/privacy", {
+        ...getCommonData("privacy", isDe ? "Datenschutzerklärung (DSGVO)" : "Privacy Policy (GDPR)", isDe ? "Informationen über die Verarbeitung personenbezogener Daten bei der REINWERK Reinraum- und Anlagentechnik GmbH." : "Information on processing of personal data in compliance with EU GDPR.")
+    });
+});
+// 13. Disclaimer / Impressum & Rechtliche Hinweise (§ 5 DDG)
+pagesRouter.get(["/disclaimer", "/impressum"], (req, res) => {
+    const isDe = res.locals.currentLang === "de";
+    res.render("pages/disclaimer", {
+        ...getCommonData("disclaimer", isDe ? "Impressum & Rechtliche Hinweise (§ 5 DDG)" : "Disclaimer & Legal Notice", isDe ? "Gesetzliche Anbieterkennzeichnung nach § 5 DDG und Haftungsausschluss der REINWERK Reinraum- und Anlagentechnik GmbH." : "Statutory Imprint under § 5 DDG and disclaimer for REINWERK Reinraum- und Anlagentechnik GmbH.")
+    });
+});

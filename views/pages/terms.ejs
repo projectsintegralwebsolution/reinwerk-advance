@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="<%= currentLang %>">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <%- include('../partials/header') %>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="/"><%= currentLang === 'de' ? 'Startseite' : 'Home' %></a>
+        <span>/</span>
+        <span><%= currentLang === 'de' ? 'Nutzungsbedingungen' : 'Terms of Use' %></span>
+      </div>
+      <div class="page-hero-content">
+        <span class="eyebrow" style="color:#38bdf8;"><%= currentLang === 'de' ? 'Rechtliche Grundlagen' : 'Legal Terms' %></span>
+        <h1><%= currentLang === 'de' ? 'Allgemeine Nutzungsbedingungen' : 'General Terms of Use' %></h1>
+        <p>
+          <%= currentLang === 'de'
+            ? 'Regelungen zur Nutzung des Online-Angebots der REINWERK Reinraum- und Anlagentechnik GmbH.'
+            : 'Terms and conditions governing the access and use of the REINWERK Reinraum- und Anlagentechnik GmbH website.' %>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="section" style="background:var(--white);">
+    <div class="container" style="max-width: 920px;">
+      <div class="card" style="padding:48px;">
+        <p style="font-size:0.875rem; color:var(--slate-500); margin-bottom:28px;">
+          <%= currentLang === 'de' ? 'Stand: September 2026 | Version 1.2' : 'Effective Date: September 2026 | Version 1.2' %>
+        </p>
+
+        <% if (currentLang === 'de') { %>
+          <div style="display:flex; flex-direction:column; gap:28px; color:var(--slate-700); line-height:1.8;">
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">1. Geltungsbereich und Anbieter</h2>
+              <p>
+                Diese Nutzungsbedingungen gelten für die Nutzung der Website der REINWERK Reinraum- und Anlagentechnik GmbH, Industriestraße 42, 70565 Stuttgart, Deutschland (nachfolgend „REINWERK“ oder „wir“). Mit dem Zugriff auf diese Website erklären Sie sich mit den nachfolgenden Bedingungen einverstanden.
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">2. Geistiges Eigentum und gewerbliche Schutzrechte</h2>
+              <p>
+                Alle Inhalte dieser Website, insbesondere technische Zeichnungen, 3D-Modelle, Reinraum-Spezifikationen, Texte, Fotografien, Grafiken, Marken und Logos, unterliegen dem deutschen Urheberrecht und internationalen Schutzgesetzen. Die Vervielfältigung, Bearbeitung, Verbreitung oder Verwertung außerhalb der Grenzen des Urheberrechts bedarf der vorherigen schriftlichen Zustimmung der REINWERK Reinraum- und Anlagentechnik GmbH.
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">3. Nutzung des Reinraum-Spezifikationsrechners</h2>
+              <p>
+                Die auf dieser Plattform bereitgestellten Berechnungstools (z. B. zur Ermittlung von Raumvolumina, Luftwechselraten nach ISO 14644 und geschätztem FFU-Bedarf) dienen ausschließlich der unverbindlichen Orientierung und Erstdimensionierung. Sie ersetzen keine professionelle ingenieurtechnische Detailplanung, thermodynamische Lastberechnung oder Vor-Ort-Messung. Ein rechtsverbindliches Angebot kommt erst nach individueller Prüfung durch unsere Projektingenieure zustande.
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">4. Vertraulichkeit bei Angebotsanfragen</h2>
+              <p>
+                Übermittelte Spezifikationen, Grundrisse und Lastenhefte (URS) werden von REINWERK gemäß den Grundsätzen des Geschäftsgeheimnisgesetzes (GeschGehG) streng vertraulich behandelt. Auf Wunsch schließen wir vor dem Austausch sensibler Anlagedaten eine gesonderte Vertraulichkeitsvereinbarung (NDA) ab.
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">5. Haftungsausschluss</h2>
+              <p>
+                Wir bemühen uns um die Richtigkeit und Vollständigkeit der bereitgestellten technischen Angaben und regulatorischen Leitfäden (u. a. DIN EN ISO 14644, EU-GMP Leitfaden Annex 1). Eine Haftung für die Richtigkeit, Vollständigkeit oder Aktualität der allgemeinen Fachinformationen wird jedoch, soweit gesetzlich zulässig, ausgeschlossen.
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">6. Anwendbares Recht und Gerichtsstand</h2>
+              <p>
+                Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts (CISG). Ausschließlicher Gerichtsstand für alle Streitigkeiten aus oder im Zusammenhang mit der Nutzung dieser Website ist, soweit gesetzlich vereinbar, Stuttgart, Deutschland.
+              </p>
+            </div>
+          </div>
+        <% } else { %>
+          <div style="display:flex; flex-direction:column; gap:28px; color:var(--slate-700); line-height:1.8;">
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">1. Scope and Service Provider</h2>
+              <p>
+                These Terms of Use govern the access to and use of the website operated by REINWERK Reinraum- und Anlagentechnik GmbH, Industriestraße 42, 70565 Stuttgart, Germany ("REINWERK", "we", or "us"). By accessing or using this website, you agree to comply with and be bound by these Terms.
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">2. Intellectual Property Rights</h2>
+              <p>
+                All content published on this website, including engineering drawings, cleanroom classification diagrams, architectural BIM models, photographs, text, and registered trademarks, are protected by international copyright and intellectual property laws. Any reproduction, modification, or commercial distribution requires prior written authorization from REINWERK Reinraum- und Anlagentechnik GmbH.
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">3. Online Estimators & Calculation Tools</h2>
+              <p>
+                The online calculation tools provided on this website (such as cleanroom air change rate calculators and Fan Filter Unit estimators according to ISO 14644-1) are intended for preliminary informational estimation only. They do not constitute a formal engineering contract or binding quotation until validated by our certified engineering team through a formal project proposal.
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">4. Confidentiality of Client Submissions</h2>
+              <p>
+                All facility layouts, User Requirement Specifications (URS), and project parameters submitted through our quotation or contact forms are treated with strict confidentiality under non-disclosure standards. Bilateral non-disclosure agreements (NDAs) are routinely executed prior to comprehensive facility engineering audits.
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">5. Limitation of Liability</h2>
+              <p>
+                While REINWERK takes reasonable measures to ensure technical accuracy regarding cleanroom engineering classifications and regulatory guidelines, we make no express warranties regarding general web content. Liability for indirect damages or downtime resulting from reliance on website data is disclaimed to the maximum extent permitted by German law.
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">6. Governing Law and Jurisdiction</h2>
+              <p>
+                These Terms of Use shall be governed by and construed in accordance with the laws of the Federal Republic of Germany, without giving effect to the UN Convention on Contracts for the International Sale of Goods (CISG). The courts of Stuttgart, Germany, shall have exclusive jurisdiction over any disputes arising hereunder.
+              </p>
+            </div>
+          </div>
+        <% } %>
+
+        <div style="margin-top:36px; padding-top:24px; border-top:1px solid var(--slate-200); display:flex; gap:16px; flex-wrap:wrap;">
+          <a href="/privacy" class="btn btn-outline btn-sm"><%= currentLang === 'de' ? 'Zur Datenschutzerklärung' : 'View Privacy Policy' %></a>
+          <a href="/disclaimer" class="btn btn-outline btn-sm"><%= currentLang === 'de' ? 'Zum Impressum' : 'View Imprint & Disclaimer' %></a>
+          <a href="/contact" class="btn btn-primary btn-sm"><%= currentLang === 'de' ? 'Kontakt aufnehmen' : 'Contact Us' %></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <%- include('../partials/footer') %>
+</body>
+</html>

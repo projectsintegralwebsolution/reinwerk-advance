@@ -7,6 +7,7 @@ import { pagesRouter } from "./routes/pages.js";
 import { apiRouter } from "./routes/api.js";
 import { servicesData } from "./data/services.js";
 import { industriesData } from "./data/industries.js";
+import { t } from "./locales/translations.js";
 dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -16,6 +17,21 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// Language & Template Locals Middleware (Default: German 'de')
+app.use((req, res, next) => {
+    const queryLang = typeof req.query.lang === "string" ? req.query.lang : undefined;
+    const cookieMatch = req.headers.cookie?.match(/(?:^|;\s*)reinwerk_lang=([^;]+)/);
+    const cookieLang = cookieMatch ? cookieMatch[1] : undefined;
+    const chosenLang = (queryLang || cookieLang || "de").toLowerCase();
+    const currentLang = chosenLang === "en" ? "en" : "de";
+    if (queryLang && (queryLang === "de" || queryLang === "en")) {
+        res.setHeader("Set-Cookie", `reinwerk_lang=${queryLang}; Path=/; Max-Age=31536000; SameSite=Lax`);
+    }
+    res.locals.currentLang = currentLang;
+    res.locals.t = (key, fallback) => t(currentLang, key, fallback);
+    res.locals.recaptchaSiteKey = process.env.RECAPTCHA_SITE_KEY || "";
+    next();
+});
 // Determine root directory (handles both tsx execution and compiled dist execution)
 const rootDir = path.resolve(__dirname, "..");
 // Set View Engine
