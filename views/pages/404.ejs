@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <%- include('../partials/header') %>
+
+  <!-- 404 Section -->
+  <section class="section" style="padding:120px 0; text-align:center;">
+    <div class="container">
+      <div style="max-width:600px; margin:0 auto;">
+        <span class="eyebrow" style="color:var(--accent-red);">Error 404</span>
+        <h1 style="font-size:3.5rem; color:var(--primary-navy); margin-bottom:16px;">Cleanroom Perimeter Exceeded</h1>
+        <p style="font-size:1.125rem; color:var(--slate-600); margin-bottom:32px;">
+          The page or specification document you requested is not located within this cleanroom zone or has been moved to another classification tier.
+        </p>
+        <div style="display:flex; justify-content:center; gap:16px;">
+          <a href="/" class="btn btn-primary">Return to Homepage</a>
+          <a href="/services" class="btn btn-outline">Explore Cleanroom Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <%- include('../partials/footer') %>
+</body>
+</html>

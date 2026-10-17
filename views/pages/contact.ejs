@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="<%= currentLang %>">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <%- include('../partials/header') %>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="/"><%= currentLang === 'de' ? 'Startseite' : 'Home' %></a>
+        <span>/</span>
+        <span><%= currentLang === 'de' ? 'Kontakt' : 'Contact Us' %></span>
+      </div>
+      <div class="page-hero-content">
+        <span class="eyebrow" style="color:#38bdf8;"><%= currentLang === 'de' ? 'Technische Beratung & Dialog' : 'Get in Touch' %></span>
+        <h1><%= currentLang === 'de' ? 'Kontakt zum REINWERK Ingenieurbüro' : 'Contact Cleanroom Engineering Desk' %></h1>
+        <p>
+          <%= currentLang === 'de'
+            ? 'Ob Sie eine neue modulare Reinraumanlage planen, bestehende HLK-Filteranlagen aufrüsten oder eine zertifizierte Re-Validierung nach ISO 14644 vereinbaren möchten – unser Ingenieurteam steht Ihnen zur Verfügung.'
+            : 'Whether you are planning a new modular cleanroom facility, upgrading existing HVAC air filtration, or scheduling certified ISO 14644 re-validation, our engineering team is at your disposal.' %>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Grid -->
+  <section class="section">
+    <div class="container">
+      <div class="service-overview-grid">
+        <!-- Contact Form -->
+        <div class="card" style="padding:40px;">
+          <h2 style="font-size:1.75rem; color:var(--primary-navy); margin-bottom:8px;">
+            <%= currentLang === 'de' ? 'Technische Anfrage absenden' : 'Send an Engineering Inquiry' %>
+          </h2>
+          <p style="font-size:0.9375rem; color:var(--slate-600); margin-bottom:32px;">
+            <%= currentLang === 'de'
+              ? 'Füllen Sie das untenstehende Formular aus. Ein leitender Projektingenieur prüft Ihre Parameter und meldet sich innerhalb eines Werktages.'
+              : 'Fill out the form below. A senior cleanroom consultant will review your requirements and respond within one business day.' %>
+          </p>
+
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="contactName"><%= currentLang === 'de' ? 'Vollständiger Name *' : 'Full Name *' %></label>
+                <input type="text" id="contactName" name="name" class="form-control" placeholder="<%= currentLang === 'de' ? 'z. B. Dr. Thomas Keller' : 'e.g. Dr. Thomas Keller' %>" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contactEmail"><%= currentLang === 'de' ? 'Geschäftliche E-Mail-Adresse *' : 'Work Email Address *' %></label>
+                <input type="email" id="contactEmail" name="email" class="form-control" placeholder="t.keller@company.com" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="contactPhone"><%= currentLang === 'de' ? 'Telefonnummer' : 'Phone Number' %></label>
+                <input type="tel" id="contactPhone" name="phone" class="form-control" placeholder="+49 (0) 711 ...">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contactCompany"><%= currentLang === 'de' ? 'Unternehmen / Institution' : 'Company / Institution' %></label>
+                <input type="text" id="contactCompany" name="company" class="form-control" placeholder="<%= currentLang === 'de' ? 'z. B. BioTech Diagnostics GmbH' : 'e.g. BioTech Diagnostics GmbH' %>">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="contactSector"><%= currentLang === 'de' ? 'Branche' : 'Industry Sector' %></label>
+                <select id="contactSector" name="sector" class="form-control">
+                  <option value="Pharmaceutical / Biotech"><%= currentLang === 'de' ? 'Pharmazie & Biotechnologie' : 'Pharmaceutical & Biotechnology' %></option>
+                  <option value="Semiconductor / Microelectronics"><%= currentLang === 'de' ? 'Halbleiter & Mikroelektronik' : 'Semiconductor & Microelectronics' %></option>
+                  <option value="Medical Device"><%= currentLang === 'de' ? 'Medizintechnik-Herstellung' : 'Medical Device Manufacturing' %></option>
+                  <option value="Aerospace / Optics"><%= currentLang === 'de' ? 'Luft- & Raumfahrt / Präzisionsoptik' : 'Aerospace & Precision Optics' %></option>
+                  <option value="Healthcare / Hospital"><%= currentLang === 'de' ? 'Kliniken & Zytostatika-Labore' : 'Healthcare & Compounding' %></option>
+                  <option value="Other / General Inquiry"><%= currentLang === 'de' ? 'Sonstige Reinraumanwendung' : 'Other Cleanroom Application' %></option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="serviceInterest"><%= currentLang === 'de' ? 'Gewünschter Leistungsbereich' : 'Area of Primary Interest' %></label>
+                <select id="serviceInterest" name="serviceInterest" class="form-control">
+                  <option value="Turnkey Modular Cleanroom"><%= currentLang === 'de' ? 'Schlüsselfertiger modularer Reinraum' : 'Turnkey Modular Cleanroom' %></option>
+                  <option value="HVAC & Air Filtration Upgrade"><%= currentLang === 'de' ? 'HLK- & Klimatechnik-Modernisierung' : 'HVAC & Air Filtration Upgrade' %></option>
+                  <option value="Airlocks & Pass-Through Equipment"><%= currentLang === 'de' ? 'Schleusen & Durchreichen' : 'Airlocks & Pass-Through Equipment' %></option>
+                  <option value="Cleanroom Validation & Recertification"><%= currentLang === 'de' ? 'Qualifizierung & Re-Validierung' : 'Cleanroom Validation & Recertification' %></option>
+                  <option value="Consultancy & 3D BIM Design"><%= currentLang === 'de' ? 'Engineering-Beratung & 3D-BIM' : 'Consultancy & 3D BIM Design' %></option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contactMessage"><%= currentLang === 'de' ? 'Projektanforderungen & Spezifikationen *' : 'Project Details & Requirements *' %></label>
+              <textarea id="contactMessage" name="message" class="form-control" placeholder="<%= currentLang === 'de' ? 'Beschreiben Sie Raummaße, Ziel-Reinraumklasse nach ISO/GMP, Zeitplan und spezifische Prozessanforderungen...' : 'Please describe your facility dimensions, target ISO/GMP classification, timeline, and any specific process equipment requirements...' %>" required></textarea>
+            </div>
+
+            <!-- Google reCAPTCHA Security Trust Card -->
+            <div class="recaptcha-trust-card">
+              <div class="recaptcha-trust-left">
+                <svg viewBox="0 0 48 48" width="28" height="28" style="flex-shrink:0;">
+                  <path fill="#4285F4" d="M24 4.5c5.3 0 10.1 2.1 13.7 5.5l-5.6 5.6C29.8 13.5 27 12.3 24 12.3c-6.1 0-11.2 4.4-12.4 10.2H4.1C5.6 12.4 13.9 4.5 24 4.5z"/>
+                  <path fill="#34A853" d="M43.9 24c0-1.4-.2-2.7-.5-4H24v8.5h11.2c-.6 3.1-2.4 5.7-5 7.4l6.1 6.1C39.9 38.6 43.9 31.9 43.9 24z"/>
+                  <path fill="#FBBC05" d="M11.6 22.5c-.3 1.1-.5 2.2-.5 3.5s.2 2.4.5 3.5L4.1 35.7C2.2 32.2 1.1 28.2 1.1 24s1.1-8.2 3-11.7l7.5 10.2z"/>
+                  <path fill="#EA4335" d="M24 43.5c5.4 0 10.2-1.8 13.9-4.9l-6.1-6.1c-2.1 1.4-4.7 2.2-7.8 2.2-6.1 0-11.2-4.4-12.4-10.2H4.1c1.5 10.1 9.8 19 19.9 19z"/>
+                </svg>
+                <div>
+                  <div class="recaptcha-trust-header">
+                    <span><%= currentLang === 'de' ? 'Geschützt durch' : 'Protected by' %></span>
+                    <strong>Google reCAPTCHA</strong>
+                    <span class="badge-tag"><%= currentLang === 'de' ? 'Unsichtbar' : 'Invisible' %></span>
+                  </div>
+                  <div class="recaptcha-trust-sub">
+                    <%= currentLang === 'de'
+                      ? 'Automatischer digitaler Spamschutz im Hintergrund ohne Bilderrätsel'
+                      : 'Automated background security against bots with zero user friction' %>
+                  </div>
+                </div>
+              </div>
+              <div class="recaptcha-trust-links">
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy</a>
+                <span>•</span>
+                <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms</a>
+              </div>
+            </div>
+
+            <!-- Invisible Google reCAPTCHA Trigger -->
+            <div id="contactRecaptcha" class="g-recaptcha" data-sitekey="<%= recaptchaSiteKey %>" data-size="invisible" data-callback="onContactCaptchaSuccess"></div>
+
+            <button type="submit" class="btn btn-accent btn-lg" style="width:100%;">
+              <i data-feather="send"></i>
+              <%= currentLang === 'de' ? 'Technische Anfrage absenden' : 'Send Engineering Inquiry' %>
+            </button>
+            <p style="font-size:0.75rem; color:var(--slate-500); margin-top:12px; text-align:center;">
+              <%= currentLang === 'de'
+                ? 'Geschützt durch SSL-Verschlüsselung und unsichtbares Google reCAPTCHA. Vertraulichkeit nach NDA-Standards garantiert.'
+                : 'Protected by SSL encryption and invisible Google reCAPTCHA. Your specifications are kept strictly confidential under NDA standards.' %>
+            </p>
+          </form>
+        </div>
+
+        <!-- Contact Info Cards -->
+        <div>
+          <div class="card" style="padding:32px; margin-bottom:24px;">
+            <h3 style="font-size:1.25rem; color:var(--primary-navy); margin-bottom:20px; padding-bottom:10px; border-bottom:2px solid var(--slate-200);">
+              REINWERK Engineering Office
+            </h3>
+
+            <div class="footer-contact-item" style="color:var(--slate-800); margin-bottom:20px;">
+              <i data-feather="map-pin" style="width:20px; height:20px; color:var(--accent-red); flex-shrink:0;"></i>
+              <div>
+                <strong>Headquarters & Technical Center</strong><br>
+                Industriestraße 42<br>
+                70565 Stuttgart, Germany
+              </div>
+            </div>
+
+            <div class="footer-contact-item" style="color:var(--slate-800); margin-bottom:20px;">
+              <i data-feather="phone" style="width:20px; height:20px; color:var(--primary-navy); flex-shrink:0;"></i>
+              <div>
+                <strong>Direct Desk Phone:</strong><br>
+                <a href="tel:+497118947200" style="color:var(--primary-navy); font-weight:600;">+49 (0) 711 8947 200</a>
+              </div>
+            </div>
+
+            <div class="footer-contact-item" style="color:var(--slate-800); margin-bottom:20px;">
+              <i data-feather="mail" style="width:20px; height:20px; color:var(--primary-navy); flex-shrink:0;"></i>
+              <div>
+                <strong>Email Correspondence:</strong><br>
+                <a href="mailto:info@reinwerk-cleanroom.com" style="color:var(--primary-navy); font-weight:600;">info@reinwerk-cleanroom.com</a>
+              </div>
+            </div>
+
+            <div class="footer-contact-item" style="color:var(--slate-800);">
+              <i data-feather="clock" style="width:20px; height:20px; color:var(--slate-500); flex-shrink:0;"></i>
+              <div>
+                <strong>Engineering Hours:</strong><br>
+                Monday – Friday: 08:00 – 18:00 CET<br>
+                <span style="font-size:12px; color:var(--slate-500);">24/7 emergency response for contracted facilities</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:var(--slate-50); border:1px solid var(--slate-200); border-radius:var(--radius-lg); padding:24px; text-align:center;">
+            <i data-feather="calculator" style="width:36px; height:36px; color:var(--primary-navy); margin-bottom:12px;"></i>
+            <h4 style="font-size:1.125rem; margin-bottom:8px;">Need a Fast Project Estimate?</h4>
+            <p style="font-size:0.875rem; color:var(--slate-600); margin-bottom:16px;">
+              Use our interactive cleanroom specification builder to calculate floor area, air change rates, and required FFUs.
+            </p>
+            <a href="/quote" class="btn btn-outline btn-sm">Launch Cleanroom Estimator</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <%- include('../partials/footer') %>
+</body>
+</html>

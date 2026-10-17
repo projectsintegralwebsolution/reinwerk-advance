@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="<%= currentLang %>">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <%- include('../partials/header') %>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="/"><%= currentLang === 'de' ? 'Startseite' : 'Home' %></a>
+        <span>/</span>
+        <span><%= currentLang === 'de' ? 'Impressum & Haftungsausschluss' : 'Disclaimer & Imprint' %></span>
+      </div>
+      <div class="page-hero-content">
+        <span class="eyebrow" style="color:#38bdf8;"><%= currentLang === 'de' ? 'Gesetzliche Anbieterkennzeichnung' : 'Statutory Imprint' %></span>
+        <h1><%= currentLang === 'de' ? 'Impressum & Rechtliche Hinweise' : 'Disclaimer & Legal Notice' %></h1>
+        <p>
+          <%= currentLang === 'de'
+            ? 'Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG) sowie Haftungsausschluss der REINWERK Reinraum- und Anlagentechnik GmbH.'
+            : 'Information required under German statutory corporate laws (§ 5 DDG) and general disclaimer.' %>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="section" style="background:var(--white);">
+    <div class="container" style="max-width: 920px;">
+      <div class="card" style="padding:48px;">
+        <% if (currentLang === 'de') { %>
+          <div style="display:flex; flex-direction:column; gap:28px; color:var(--slate-700); line-height:1.8;">
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">Angaben gemäß § 5 DDG</h2>
+              <p>
+                <strong>REINWERK Reinraum- und Anlagentechnik GmbH</strong><br>
+                Industriestraße 42<br>
+                70565 Stuttgart<br>
+                Deutschland
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">Vertreten durch die Geschäftsführung</h2>
+              <p>
+                Dr.-Ing. Klaus Reinmüller<br>
+                Dipl.-Ing. Markus Weber
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">Kontakt</h2>
+              <p>
+                Telefon: +49 (0) 711 8947 200<br>
+                Telefax: +49 (0) 711 8947 209<br>
+                E-Mail: info@reinwerk-cleanroom.com<br>
+                Website: www.reinwerk-cleanroom.com
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">Registereintrag</h2>
+              <p>
+                Eintragung im Handelsregister.<br>
+                Registergericht: Amtsgericht Stuttgart<br>
+                Registernummer: HRB 748291
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">Umsatzsteuer-Identifikationsnummer</h2>
+              <p>
+                Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br>
+                DE 318 947 200
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">Berufsbezeichnung & Berufsrechtliche Regelungen</h2>
+              <p>
+                Berufsbezeichnung: Beratende Ingenieure für Reinraumtechnik und Anlagenbau (verliehen in der Bundesrepublik Deutschland)<br>
+                Zuständige Kammer: Ingenieurkammer Baden-Württemberg<br>
+                Berufshaftpflichtversicherung: Allianz Versicherungs-AG, 80802 München (Geltungsbereich: Europa und weltweite Montageprojekte).
+              </p>
+            </div>
+
+            <div style="border-top:1px solid var(--slate-200); padding-top:24px;">
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">Haftungsausschluss (Disclaimer)</h2>
+              <h3 style="font-size:1.1rem; color:var(--slate-800); margin-bottom:6px;">Haftung für Inhalte</h3>
+              <p style="margin-bottom:16px;">
+                Als Diensteanbieter sind wir gemäß § 7 Abs.1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt.
+              </p>
+
+              <h3 style="font-size:1.1rem; color:var(--slate-800); margin-bottom:6px;">Haftung für Links</h3>
+              <p style="margin-bottom:16px;">
+                Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
+              </p>
+
+              <h3 style="font-size:1.1rem; color:var(--slate-800); margin-bottom:6px;">Urheberrecht</h3>
+              <p>
+                Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+              </p>
+            </div>
+          </div>
+        <% } else { %>
+          <div style="display:flex; flex-direction:column; gap:28px; color:var(--slate-700); line-height:1.8;">
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">Company Information (§ 5 DDG)</h2>
+              <p>
+                <strong>REINWERK Reinraum- und Anlagentechnik GmbH</strong><br>
+                Industriestraße 42<br>
+                70565 Stuttgart<br>
+                Germany
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">Managing Directors (Geschäftsführung)</h2>
+              <p>
+                Dr.-Ing. Klaus Reinmüller<br>
+                Dipl.-Ing. Markus Weber
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">Direct Contact</h2>
+              <p>
+                Phone: +49 (0) 711 8947 200<br>
+                Fax: +49 (0) 711 8947 209<br>
+                Email: info@reinwerk-cleanroom.com<br>
+                Website: www.reinwerk-cleanroom.com
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">Commercial Register</h2>
+              <p>
+                Registration in commercial register.<br>
+                Register Court: Local Court of Stuttgart (Amtsgericht Stuttgart)<br>
+                Registration Number: HRB 748291
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">Value Added Tax Identification (VAT ID)</h2>
+              <p>
+                VAT Identification Number pursuant to § 27 a German Value Added Tax Act:<br>
+                DE 318 947 200
+              </p>
+            </div>
+
+            <div style="border-top:1px solid var(--slate-200); padding-top:24px;">
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">Legal Disclaimer</h2>
+              <h3 style="font-size:1.1rem; color:var(--slate-800); margin-bottom:6px;">Liability for Content</h3>
+              <p style="margin-bottom:16px;">
+                As a service provider, we are responsible for our own content on these pages under general German law pursuant to § 7(1) DDG. However, according to §§ 8 to 10 DDG, we are not obligated to monitor external information transmitted or stored, or to investigate circumstances indicating unlawful activity.
+              </p>
+
+              <h3 style="font-size:1.1rem; color:var(--slate-800); margin-bottom:6px;">Liability for External Hyperlinks</h3>
+              <p style="margin-bottom:16px;">
+                Our online service contains links to external third-party websites over whose content we have no control. Consequently, we cannot assume any liability for such third-party content. The respective provider or operator of the linked pages is always responsible for their content.
+              </p>
+
+              <h3 style="font-size:1.1rem; color:var(--slate-800); margin-bottom:6px;">Copyright</h3>
+              <p>
+                The content, diagrams, architectural photographs, and works created by the site operators on these pages are subject to German copyright law. Any duplication, processing, or distribution requires written consent from the author or creator.
+              </p>
+            </div>
+          </div>
+        <% } %>
+
+        <div style="margin-top:36px; padding-top:24px; border-top:1px solid var(--slate-200); display:flex; gap:16px; flex-wrap:wrap;">
+          <a href="/terms" class="btn btn-outline btn-sm"><%= currentLang === 'de' ? 'Zu den Nutzungsbedingungen' : 'View Terms of Use' %></a>
+          <a href="/privacy" class="btn btn-outline btn-sm"><%= currentLang === 'de' ? 'Zur Datenschutzerklärung' : 'View Privacy Policy' %></a>
+          <a href="/contact" class="btn btn-primary btn-sm"><%= currentLang === 'de' ? 'Kontakt aufnehmen' : 'Contact Us' %></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <%- include('../partials/footer') %>
+</body>
+</html>

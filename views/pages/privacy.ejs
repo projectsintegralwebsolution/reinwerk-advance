@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="<%= currentLang %>">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <%- include('../partials/header') %>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="/"><%= currentLang === 'de' ? 'Startseite' : 'Home' %></a>
+        <span>/</span>
+        <span><%= currentLang === 'de' ? 'Datenschutzerklärung' : 'Privacy Policy' %></span>
+      </div>
+      <div class="page-hero-content">
+        <span class="eyebrow" style="color:#38bdf8;"><%= currentLang === 'de' ? 'Datenschutz & DSGVO' : 'Data Privacy & GDPR' %></span>
+        <h1><%= currentLang === 'de' ? 'Datenschutzerklärung' : 'Privacy Policy' %></h1>
+        <p>
+          <%= currentLang === 'de'
+            ? 'Informationen über die Verarbeitung personenbezogener Daten bei der Nutzung unserer Website gemäß Art. 13 und 14 DSGVO.'
+            : 'Information on the processing of personal data when using our website in compliance with Articles 13 & 14 GDPR.' %>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="section" style="background:var(--white);">
+    <div class="container" style="max-width: 920px;">
+      <div class="card" style="padding:48px;">
+        <p style="font-size:0.875rem; color:var(--slate-500); margin-bottom:28px;">
+          <%= currentLang === 'de' ? 'Stand: September 2026 | Konform mit EU-DSGVO und TDDDG' : 'Last Updated: September 2026 | Compliant with EU GDPR' %>
+        </p>
+
+        <% if (currentLang === 'de') { %>
+          <div style="display:flex; flex-direction:column; gap:28px; color:var(--slate-700); line-height:1.8;">
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">1. Name und Kontaktdaten des Verantwortlichen</h2>
+              <p>
+                Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) und des Bundesdatenschutzgesetzes (BDSG) ist:<br>
+                <strong>REINWERK Reinraum- und Anlagentechnik GmbH</strong><br>
+                Industriestraße 42<br>
+                70565 Stuttgart, Deutschland<br>
+                Telefon: +49 (0) 711 8947 200<br>
+                E-Mail: datenschutz@reinwerk-cleanroom.com / info@reinwerk-cleanroom.com
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">2. Bereitstellung der Website und Erstellung von Logfiles</h2>
+              <p>
+                Bei jedem Aufruf unserer Website erfasst unser Webserver automatisiert Daten und Informationen des aufrufenden Systems (Server-Logfiles). Hierzu gehören:<br>
+                • Browsertyp und verwendete Version<br>
+                • Betriebssystem des Nutzers<br>
+                • Referrer URL (die zuvor besuchte Seite)<br>
+                • Hostname des zugreifenden Rechners (anonymisierte IP-Adresse)<br>
+                • Datum und Uhrzeit der Serveranfrage<br>
+                Rechtsgrundlage für die vorübergehende Speicherung der Daten und Logfiles ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der technischen Stabilität und Sicherheit unseres Webangebots).
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">3. Kontaktformular und Reinraum-Angebotsrechner</h2>
+              <p>
+                Wenn Sie uns per Kontaktformular oder über unseren Online-Spezifikationsrechner Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten (Name, E-Mail, Telefon, Unternehmen, Reinraumparameter) zur Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert.<br>
+                Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Durchführung vorvertraglicher Maßnahmen) sowie unser berechtigtes Interesse an der Bearbeitung an uns gerichteter geschäftlicher Anfragen (Art. 6 Abs. 1 lit. f DSGVO). Ihre Daten werden gelöscht, sobald Ihre Anfrage abschließend bearbeitet ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">4. Einsatz von Google reCAPTCHA (Invisible)</h2>
+              <p>
+                Zum Schutz unserer Webformulare vor missbräuchlicher Nutzung durch automatisierte Programme (Bots) und Spam verwenden wir den Dienst <strong>Google reCAPTCHA (Invisible)</strong> der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland („Google“).<br>
+                Hierbei analysiert Google das Verhalten des Website-Besuchers anhand verschiedener Merkmale (z. B. IP-Adresse, Verweildauer des Besuchers auf der Website, Mausbewegungen). Die Analyse läuft vollständig im Hintergrund ab. Website-Besucher werden nicht durch interaktive Bildrätsel belästigt.<br>
+                Rechtsgrundlage für die Nutzung von Google reCAPTCHA ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse des Websitebetreibers am Schutz vor automatisierter digitaler Spionage, Denial-of-Service-Angriffen und Spam). Weitere Informationen zu Google reCAPTCHA sowie die Datenschutzerklärung von Google finden Sie unter: 
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style="color:var(--clean-blue);">policies.google.com/privacy</a>.
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">5. SSL- bzw. TLS-Verschlüsselung</h2>
+              <p>
+                Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte, wie zum Beispiel Bestellungen oder Anfragen, die Sie an uns als Seitenbetreiber senden, eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://“ auf „https://“ wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">6. Ihre Rechte als betroffene Person</h2>
+              <p>
+                Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf:<br>
+                • <strong>Auskunft</strong> über Ihre bei uns gespeicherten personenbezogenen Daten (Art. 15 DSGVO)<br>
+                • <strong>Berichtigung</strong> unrichtiger oder unvollständiger Daten (Art. 16 DSGVO)<br>
+                • <strong>Löschung</strong> („Recht auf Vergessenwerden“, Art. 17 DSGVO)<br>
+                • <strong>Einschränkung der Verarbeitung</strong> (Art. 18 DSGVO)<br>
+                • <strong>Datenübertragbarkeit</strong> (Art. 20 DSGVO)<br>
+                • <strong>Widerspruchsrecht</strong> gegen die Verarbeitung (Art. 21 DSGVO)<br>
+                Sie haben zudem das Recht, sich bei einer zuständigen Datenschutz-Aufsichtsbehörde zu beschweren (für Baden-Württemberg: Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg, Lautenschlagerstraße 20, 70173 Stuttgart).
+              </p>
+            </div>
+          </div>
+        <% } else { %>
+          <div style="display:flex; flex-direction:column; gap:28px; color:var(--slate-700); line-height:1.8;">
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">1. Data Controller Information</h2>
+              <p>
+                The Data Controller responsible for processing personal data under the European General Data Protection Regulation (GDPR) is:<br>
+                <strong>REINWERK Reinraum- und Anlagentechnik GmbH</strong><br>
+                Industriestraße 42<br>
+                70565 Stuttgart, Germany<br>
+                Phone: +49 (0) 711 8947 200<br>
+                Email: datenschutz@reinwerk-cleanroom.com / info@reinwerk-cleanroom.com
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">2. Web Server Log Files</h2>
+              <p>
+                When accessing our website, the hosting server automatically collects and stores operational technical information in server log files. This includes browser type and version, operating system, referrer URL, anonymized IP address, and exact timestamp of the server request. The legal basis is Art. 6(1)(f) GDPR (our legitimate interest in ensuring network and cyber security).
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">3. Contact & Cleanroom RFQ Quotation Forms</h2>
+              <p>
+                When you submit inquiries or cleanroom specifications through our contact forms or online sizing calculators, the information provided (including name, company, email, phone number, and technical specifications) is processed solely for preparing engineering proposals and conducting client communication. Legal basis: Art. 6(1)(b) GDPR (pre-contractual measures) and Art. 6(1)(f) GDPR.
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">4. Invisible Google reCAPTCHA Integration</h2>
+              <p>
+                To defend our online forms from automated bots and abusive spam submissions, we employ <strong>Google reCAPTCHA (Invisible)</strong>, provided by Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland.<br>
+                reCAPTCHA analyzes user behavior based on various technical parameters (such as mouse movements, IP address, and session duration) in the background without interrupting legitimate users with image puzzles.<br>
+                The legal basis is Art. 6(1)(f) GDPR (legitimate interest in safeguarding our IT infrastructure against automated attacks and spam). For details, review Google's Privacy Policy at 
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style="color:var(--clean-blue);">policies.google.com/privacy</a>.
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">5. SSL/TLS Encryption</h2>
+              <p>
+                For security reasons and to protect the transmission of proprietary technical designs, user requirement documents, and confidential inquiries, this website uses 256-bit SSL/TLS encryption. You can identify an encrypted connection by the "https://" protocol and lock symbol in your browser address bar.
+              </p>
+            </div>
+
+            <div>
+              <h2 style="font-size:1.4rem; color:var(--primary-navy); margin-bottom:12px;">6. Your Rights as a Data Subject</h2>
+              <p>
+                Under the GDPR, you are entitled to exercise your statutory rights at any time, including the right of access (Art. 15), right to rectification (Art. 16), right to erasure (Art. 17), right to restriction of processing (Art. 18), and right to object (Art. 21). You also have the right to lodge a complaint with a competent supervisory data protection authority in the European Union.
+              </p>
+            </div>
+          </div>
+        <% } %>
+
+        <div style="margin-top:36px; padding-top:24px; border-top:1px solid var(--slate-200); display:flex; gap:16px; flex-wrap:wrap;">
+          <a href="/terms" class="btn btn-outline btn-sm"><%= currentLang === 'de' ? 'Zu den Nutzungsbedingungen' : 'View Terms of Use' %></a>
+          <a href="/disclaimer" class="btn btn-outline btn-sm"><%= currentLang === 'de' ? 'Zum Impressum' : 'View Imprint & Disclaimer' %></a>
+          <a href="/contact" class="btn btn-primary btn-sm"><%= currentLang === 'de' ? 'Datenschutzbeauftragten kontaktieren' : 'Contact Privacy Officer' %></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <%- include('../partials/footer') %>
+</body>
+</html>

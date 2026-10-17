@@ -1,0 +1,14 @@
+# DO NOT EDIT OR REMOVE - Passenger Node.js Configuration
+<IfModule mod_passenger.c>
+    PassengerAppRoot .
+    PassengerAppType node
+    PassengerStartupFile app.js
+    PassengerBaseURI /
+</IfModule>
+
+# Fallback Rewrite Rules
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+</IfModule>
